@@ -1,0 +1,12 @@
+[template]
+src  = "icecast.xml.tmpl"
+dest = "/etc/icecast2/icecast.xml"
+keys = [
+    "/icecast/admin/email",
+    "/icecast/admin/password",
+    "/icecast/admin/user",
+    "/icecast/hostname",
+    "/icecast/location",
+    "/icecast/relay/password",
+    "/icecast/source/password",
+]
