@@ -17,7 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     mime-support=3.62 \
     musl=1.1.21-2 \
     uuid-runtime=2.33.1-0.1 \
-    xz-utils=5.2.4-1 \
+    xz-utils=5.2.4-1+deb10u1 \
   && \
   apt-get clean \
   && \
