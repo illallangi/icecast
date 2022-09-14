@@ -1,11 +1,11 @@
-# confd image
-FROM ghcr.io/illallangi/confd-builder:v0.0.3 AS confd
+# toolbx image
+FROM ghcr.io/illallangi/toolbx:latest as toolbx
 
 # main image
 FROM docker.io/library/debian:buster-20220912
 
 # install confd
-COPY --from=confd /go/bin/confd /usr/local/bin/confd
+COPY --from=toolbx /usr/local/bin/confd /usr/local/bin/confd
 
 # install prerequisites
 RUN DEBIAN_FRONTEND=noninteractive \
