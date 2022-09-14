@@ -4,10 +4,10 @@ FROM ghcr.io/illallangi/toolbx:v0.0.8 as toolbx
 # main image
 FROM docker.io/library/debian:buster-20220912
 
-# install confd
+# install confd from toolbx image
 COPY --from=toolbx /usr/local/bin/confd /usr/local/bin/confd
 
-# install prerequisites
+# install prerequisites and icecast2
 RUN DEBIAN_FRONTEND=noninteractive \
   apt-get update \
   && \
@@ -32,6 +32,8 @@ ADD https://github.com/just-containers/s6-overlay/releases/download/${OVERLAY_VE
 RUN chmod +x /tmp/s6-overlay-${OVERLAY_ARCH}-installer && /tmp/s6-overlay-${OVERLAY_ARCH}-installer / && rm /tmp/s6-overlay-${OVERLAY_ARCH}-installer
 ENV S6_BEHAVIOUR_IF_STAGE2_FAILS=2
 
+# add local files
 COPY rootfs /
 
+# set command
 CMD ["/init"]
