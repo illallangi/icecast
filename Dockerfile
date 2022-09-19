@@ -1,5 +1,5 @@
 # main image
-FROM ghcr.io/illallangi/debian:v0.0.3
+FROM ghcr.io/illallangi/debian:v0.0.4
 
 # install icecast2
 RUN DEBIAN_FRONTEND=noninteractive \
